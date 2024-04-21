@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="/styles/style.css" />
+  <script src="/scripts/script.js" defer></script>
+</head>
+
+<body>
+  <%- include('partials/header') %>
+  <div class="banner">
+    <h1>The movie Database</h1>
+    <p>For all the movie lovers! ❤️</p>
+
+    <form class="search" method="get" action=/searchResult>
+      <label class="visuallyhidden" for="search">Search</label>
+      <input name="query" type="search" placeholder="search for movie or serie..." id="search">
+      <button type="button" class="startButton">mic</button>
+
+      <input name="include_adult" type="text" id="include_adult" value="false" hidden>
+      <input name="language" type="text" id="language" value="en-US" hidden>
+      <input name="page" type="text" id="page" value="1" hidden>
+      <button type="submit">Search</button>
+    </form>
+
+  </div>
+<main>
+  <section>
+    <h2>Trending movies</h2>
+    <div class="list">
+      <ul>
+        <% for( let i = 0; i < 8; i++ ) { %>
+        <li>
+          <a href="/movie/<%= movies.results[i].id %>">
+            <img src="https://image.tmdb.org/t/p/w500/<%= movies.results[i]['poster_path'] %>" />
+            <h3> <%= movies.results[i]['original_title'] %> </h3>
+          </a>
+        </li>
+
+        <% } %>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Trending series</h2>
+    <div class="list">
+      <ul>
+        <% for( let i = 0; i < 8; i++ ) { %>
+        <li>
+          <a href="/serie/<%= series.results[i].id %>">
+            <img src="https://image.tmdb.org/t/p/w500/<%= series.results[i]['poster_path'] %>" />
+            <h3> <%= series.results[i]['original_name'] %> </h3>
+          </a>
+        </li>
+
+        <% } %>
+      </ul>
+    </div>
+  </section>
+  </main>
+</body>
+
+</html>

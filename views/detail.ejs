@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieDB</title>
+    <link rel="icon" type="image/x-icon" href="https://themoviedb.org/assets/2/favicon-32x32-543a21832c8931d3494a68881f6afcafc58e96c5d324345377f3197a37b367b5.png">
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script src="/scripts/script.js" defer></script>
+  </head>
+  <body id="detail">
+
+    <%- include('partials/header') %>
+  <main>
+
+    <div class="backdrop">
+      <img src="https://image.tmdb.org/t/p/w500/<%= data.backdrop_path %>" />
+    </div>
+
+  
+    <div class="info">
+    <div class="poster">
+      <img src="https://image.tmdb.org/t/p/w500/<%= data.poster_path %>" />
+    </div>
+      <div class="data">
+      <h1><%= data.original_title || data.original_name %></h1>
+
+      <button type="button" id="butt"><img src="/images/share.webp" /> Share</button>
+
+      <% data.vote_average = Math.round(data.vote_average * 10) / 10; %>
+      <% let color; %>
+      <% switch(true) {
+        case data.vote_average > 8:
+        color = 'green'
+        break;
+        case data.vote_average > 5.5:
+        color = 'orange'
+        break;
+        case data.vote_average > 1:
+        color = 'red'
+        break;
+      } %>
+
+      
+      <p class="vote" style="color:<%= color %>;border-color:<%= color %>;"> <%= data.vote_average %> </p>
+      <div class="genres">
+      <% data.genres.forEach(item => { %>
+        <span><%= item.name %></span>
+      <% }) %>
+      </div>
+
+      <p> <%= data.release_date %> </p>
+      <p class="description"> <%= data.overview %> </p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

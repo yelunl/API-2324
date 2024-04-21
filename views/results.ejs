@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script src="/scripts/script.js" defer></script>
+  </head>
+  <body>
+  <%- include('partials/header') %>
+
+  <section>
+    <ul class='grid'>
+    <% searchResult.forEach(item => { %>
+        <li>
+            <a href= "/<%= item.media_type === 'movie' ? 'movie' : 'serie' %>/<%= item.id %>">
+            <img src="https://image.tmdb.org/t/p/w500/<%= item.poster_path %>" />
+            <h2><%= item.original_title || item.original_name %></h2>
+
+            <% }) %> 
+            </a>
+        </li>
+    </ul>
+  </section>
+
+  </body>
+  </html>

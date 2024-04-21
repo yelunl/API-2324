@@ -1,0 +1,331 @@
+* {
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button {
+    /* pointer-events: ; */
+    cursor: pointer;
+}
+
+body {
+    /* background-color: #1a1a1a; */
+    margin: 0;
+}
+
+main {
+    padding: 1rem;
+    position: relative;
+}
+
+li {
+    list-style: none;
+}
+
+h3 {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    margin-left: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.visuallyhidden {
+    display: block;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* **** */
+/* HOME */
+/* **** */
+
+.list {
+    /* border: solid black; */
+    /* display: flex;
+    flex-direction: row; */
+    overflow: scroll;
+}
+
+.list ul {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    width: max-content;
+    overflow: scroll;
+    /* border: solid yellowgreen; */
+
+}
+
+.list ul li {
+    /* border: solid red; */
+    min-width: 12rem;
+    width: 15vw;
+    max-width: 20rem;
+}
+
+.list ul li img {
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.banner {
+    /* border: solid red; */
+    /* height: 20rem; */
+    background: linear-gradient(rgba(61, 61, 217, 0.649), rgba(61, 61, 217, 0.649)), url('/images/banner.jpg');
+    background-size: cover;
+    background-position: center 20%;
+    color: white;
+    padding: 5rem 4rem;
+}
+
+.banner h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.banner p {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 2.688rem;
+}
+
+.banner label {
+    display: block;
+    /* font-weight: bold; */
+}
+
+.banner .search input {
+    width: 70%;
+    max-width: 39rem;
+    min-width: 17rem;
+    height: 2.8rem;
+    border: solid white;
+    background: white;
+    caret-color: black;
+    color: black;
+    padding-left: 1rem;
+    border-radius: 20rem;
+}
+
+button[type="submit"] {
+    border-radius: 20rem;
+    padding: 1rem;
+    font-size: 1rem;
+    color: white;
+    background: linear-gradient(to right, #1ed5a9, #01b4e4);
+    width: 9rem;
+    border: none;
+}
+
+
+/* ************ */
+/* RESULTS PAGE */
+/* ************ */
+.grid img {
+    width: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1rem;
+    padding: 1rem;
+}
+
+/* ****** */
+/* HEADER */
+/* ****** */
+
+header {
+    background-color: rgb(13, 36, 63);
+    display: flex;
+    justify-content:space-between;
+    padding: 1rem;
+    align-items: center;
+    color: white;
+}
+
+.search input {
+    width: 4rem;
+    height: 1.9rem;
+    transition: 1s;
+    background: url('/images/glass.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0.5rem;
+    padding-left: 2.4rem;
+    border-radius: 1rem;
+    border: solid rgba(255, 255, 255, 0);
+    caret-color: white;
+    color: white;
+}
+
+header input:focus {
+    width: 15rem;
+    border: solid rgba(255, 255, 255, 1);
+}
+
+/* ****** */
+/* DETAIL */
+/* ****** */
+
+#detail {
+    background-color: black;
+}
+
+#detail div {
+    /* border: solid black; */
+
+}
+
+#detail main {
+    /* min-height: 100vh; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    background: black;
+    /* z-index: -2; */
+}
+
+/* style="background-image:linear-gradient(to right, rgba(37, 37, 37, 0.564),50%, rgba(37, 37, 37, 0.264)), url(https://image.tmdb.org/t/p/w500/<%= data.backdrop_path %>), linear-gradient(to right, rgba(37, 37, 37, 0.564),50%, rgba(37, 37, 37, 0.264));" */
+/*  <div class="backdrop" style="background-image:linear-gradient(to right, rgba(37, 37, 37, 0.564),50%, rgba(37, 37, 37, 0.264)), url(https://image.tmdb.org/t/p/w500/<%= data.backdrop_path %>), linear-gradient(to right, rgba(37, 37, 37, 0.564),50%, rgba(37, 37, 37, 0.264));"> */
+
+#detail .backdrop {
+    /* height: 23rem;
+    overflow: hidden;
+    position: absolute;
+    width: 100vw; */
+
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top: 0;
+    left: 0;
+    opacity: .75;
+    /* z-index: -1; */
+    /* background-size: cover;
+    background-repeat: no-repeat; */
+
+}
+
+#detail .backdrop img{
+    /* width: 100%;
+    object-fit: cover;
+    object-position: 50%; */
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* object-position: 100% 100%; */
+}
+
+#detail .backdrop::after {
+    /* content: '';
+    display: block;
+    background: linear-gradient(black, black);
+    position: absolute;
+    width: 100%;
+    height: 100%; */
+
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #000000,60%, rgba(0, 0, 0, 0.351));
+}
+
+#detail .info {
+    /* border: solid red; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: white;
+    padding: 3rem;
+    width: fit-content;
+
+}
+
+#detail .info button {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+#detail .vote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid black;
+    width: 3rem;
+    height: 3rem;
+    /* padding: 1rem; */
+    border-radius: 50rem;
+}
+
+#detail .info button img {
+    width: 1rem;
+}
+
+/* #detail .info > img {
+    max-width: 20rem;
+    min-width: 10rem;
+    width: 29vw;
+} */
+
+#detail h1 {
+    margin-top: 0;
+}
+
+#detail .genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#detail .info .description {
+    max-width: 21rem;
+    min-width: 17rem;
+    width: 28vw;
+}
+
+#detail .poster {
+    /* max-width: 30rem;
+    min-width: 10rem;
+    width: 10vw; */
+    /* width: 20rem; */
+    max-width: 20rem;
+    width: 91%;
+}
+
+#detail .poster img {
+    width: 100%;
+    position: relative;
+}
+
+#detail .data {
+    padding: 1.5rem 2rem;
+    max-width: 30rem;
+    min-width: 14rem;
+    width: 35vw;
+    z-index: 2;
+
+}
+
+#detail main {
+    padding: 0;
+    /* display: flex; */
+    /* align-items: center; */
+}
+
+#detail span {
+    border: solid white;
+    padding: 0.5rem;
+    border-radius: 5rem;
+    font-size: 0.9rem;
+}
