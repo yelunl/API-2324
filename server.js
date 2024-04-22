@@ -2,8 +2,6 @@ import express, { json, query } from "express";
 import ejs from "ejs";
 import 'dotenv/config';
 
-// import 'dotenv/config';
-
 const app = express();
 
 app.use(express.static("./public"));
@@ -41,8 +39,6 @@ app.get('*', async (req, res, next) => {
   if(req.query.query) {
     const { query, include_adult, language, page } = req.query;
     const searchResult = await getData(`https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=${include_adult}&language=${language}&page=${page}`);
-
-    // console.log(searchResult);
     req.searchResult = searchResult;
     next();
   }
@@ -57,27 +53,18 @@ app.get('/searchResult', (req, res) => {
 app.get("/", async (req, res) => {
   const trendingMovies = await getData("https://api.themoviedb.org/3/trending/movie/week?language=en-US");
   const trendingSeries = await getData("https://api.themoviedb.org/3/trending/tv/week?language=en-US");
-  // console.log(trendingMovies.results[0]);
   res.render("home", {movies: trendingMovies, series: trendingSeries});
 });
 
 app.get("/movie/:id", async (req, res) => {
   const movieInfo = await getData(`https://api.themoviedb.org/3/movie/${req.params.id}`)
-  // console.log(movieInfo.original_title);
   res.render('detail', {data: movieInfo});
 });
 
 app.get("/serie/:id", async (req, res) => {
   const serieInfo = await getData(`https://api.themoviedb.org/3/tv/${req.params.id}`)
-  // console.log(serieInfo);
   res.render('detail', {data: serieInfo});
 });
-
-// app.get("/favorites", async (req, res) => {
-//   const watchlistMovies = await getData(`https://api.themoviedb.org/3/account/19986206/watchlist/movies`)
-//   const watchlistSeries = await getData(`https://api.themoviedb.org/3/account/19986206/watchlist/tv`)
-//   res.render('favorites', {watchlistMovies, watchlistSeries});
-// });
 
 const postData = async (url, type, id) => {
   try {
@@ -102,26 +89,6 @@ const postData = async (url, type, id) => {
     console.log(err);
   }
 }
-
-
-
-// app.post('/addWatchlist', async (req, res) => {
-//   const addToWatchlist = await postData(`https://api.themoviedb.org/3/account/19986206/watchlist`);
-
-//   res.send('HELLO');
-// })
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 app.listen(5500, (req, res) => {
