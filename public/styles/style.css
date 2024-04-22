@@ -44,6 +44,26 @@ a {
 /* HOME */
 /* **** */
 
+.banner .searchContainer {
+    width: 38rem;
+}
+
+.banner .search {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.banner .searchContainer .startButton {
+    position: absolute;
+    right: 0;
+    border-radius: 5rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    background: white;
+    border: none;
+    /* opacity: 1; */
+} 
+
 .list {
     /* border: solid black; */
     /* display: flex;
@@ -100,7 +120,7 @@ a {
 }
 
 .banner .search input {
-    width: 70%;
+    width: 100%;
     max-width: 39rem;
     min-width: 17rem;
     height: 2.8rem;
@@ -152,14 +172,14 @@ header {
 
 .search input {
     width: 4rem;
-    height: 1.9rem;
+    height: 2.4rem;
     transition: 1s;
     background: url('/images/glass.svg');
-    background-size: contain;
+    background-size: 1.3rem;
     background-repeat: no-repeat;
     background-position: 0.5rem;
     padding-left: 2.4rem;
-    border-radius: 1rem;
+    border-radius: 5rem;
     border: solid rgba(255, 255, 255, 0);
     caret-color: white;
     color: white;
@@ -168,6 +188,34 @@ header {
 header input:focus {
     width: 15rem;
     border: solid rgba(255, 255, 255, 1);
+}
+
+.searchContainer {
+    position: relative;
+}
+
+.searchContainer img {
+    width: 1rem;
+}
+
+.searchContainer .startButton {
+    position: absolute;
+    right: 0.2rem;
+    border-radius: 5rem;
+    background: transparent;
+    border: none;
+} 
+
+header .startButton {
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: 1s;
+
+}
+
+header .searchContainer:has(input:focus) .startButton {
+    opacity: 1;
 }
 
 /* ****** */
