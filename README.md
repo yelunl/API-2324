@@ -12,3 +12,12 @@ I continued making my homepage and made the detail page. I first started focussi
 
 ## Week 4
 I continued to focus on the css and noticed while tweaking with the Web Speech API it stopped working suddenly. I tried to figure out why, deleted my code and recreated it but as it turns out there is a limit on how many times you can use the web speech api. And it doesn't give a clear error why. I let the Web Speech API for what it is, still working. 
+
+## Sources
+* [Web speech Api - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API)
+* [Web share Api - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Share_API)
+* ChatGPT
+* [Web speech error - MDN](https://developer.apple.com/forums/thread/663773)
+* [deploy on Render - Geeks for Geeks](https://www.geeksforgeeks.org/how-to-deploy-node-js-express-application-on-render/)
+* [Moving background effect - Winterwind inc.](https://www.youtube.com/watch?v=kyq_dQL70cQ&t=156s)
+
