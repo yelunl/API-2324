@@ -7,12 +7,17 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
   
-    recognition.continuous = true;
+    // recognition.continuous = true;
     recognition.interimResults = true;
   
     // Event handler for when speech recognition starts
     recognition.onstart = () => {
       console.log('Listening...');
+    };
+
+    recognition.onspeechend = () => {
+      recognition.stop();
+      console.log("Speech recognition has stopped.");
     };
   
     // Event handler for when speech recognition ends
